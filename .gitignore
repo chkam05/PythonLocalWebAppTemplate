@@ -3,6 +3,14 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# OS generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
 # C extensions
 *.so
 

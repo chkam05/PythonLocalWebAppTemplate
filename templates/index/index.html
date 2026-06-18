@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index/index.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <div class="header">
+            <img class="header__icon" src="{{ url_for('static', filename='icons/favicon.png') }}" alt="">
+            <h1 class="header__title">{{ app_name }}</h1>
+        </div>
+
+        <main class="content">
+            <section class="app-info" aria-label="Application information">
+                <dl class="app-info__list">
+                    <div class="app-info__item">
+                        <dt>Version</dt>
+                        <dd>{{ app_version }}</dd>
+                    </div>
+                    <div class="app-info__item">
+                        <dt>Author</dt>
+                        <dd>{{ app_copyright }}</dd>
+                    </div>
+                    <div class="app-info__item">
+                        <dt>Address</dt>
+                        <dd><a href="{{ app_url }}">{{ app_url }}</a></dd>
+                    </div>
+                </dl>
+
+                <div class="app-info__description">
+                    <h2>Local web application template for desktop apps</h2>
+                    <p>
+                        This project is a ready-to-use foundation for building local desktop applications with a web-based user interface.
+                        The application runs a Flask backend on the local machine and displays the interface inside a native WebView window,
+                        giving you the development comfort of a web app while keeping the distribution model close to a desktop application.
+                    </p>
+                    <p>
+                        The template separates the application into focused layers: controllers expose HTTP endpoints, data models define
+                        typed structures and JSON serialization, storage classes persist application data, and the WebView runtime chooses
+                        the best available backend for macOS, Windows, or Linux. The main window remembers its last size and position by
+                        saving settings to a platform-specific configuration directory.
+                    </p>
+                    <p>
+                        Built-in storage uses thread-safe JSON access with atomic writes, cache invalidation, deep-copied snapshots, and
+                        default data initialization when the settings file is missing or invalid. The settings API is available through
+                        simple JSON endpoints, so frontend code can load and save runtime configuration without knowing where or how the
+                        file is stored on disk.
+                    </p>
+                    <p>
+                        The build script is prepared for system-specific packaging. It can create native-style application outputs for
+                        macOS, Windows, and Linux, attach metadata such as version, author, copyright, description, and application icon,
+                        and package the generated artifacts into release archives suitable for distribution.
+                    </p>
+                    <p>
+                        To use the template, customize the values in the configuration file, add your own controllers, models, storage
+                        classes, templates, and static assets, then run the application locally during development. When the app is ready,
+                        run the build script on the target operating system to generate the desktop package for that platform.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
