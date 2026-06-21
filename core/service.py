@@ -4,7 +4,7 @@ from threading import Lock, Thread, current_thread
 from typing import Any
 from werkzeug.serving import make_server
 
-from core.storage.settings_storage import SettingsStorage
+from storage.settings_storage import SettingsStorage
 
 
 class Service:

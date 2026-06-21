@@ -4,8 +4,8 @@ from typing import ClassVar
 from flask import jsonify, request
 
 from core.api.base_controller import BaseController
-from core.models.settings_data_model import SettingsDataModel
-from core.storage.settings_storage import SettingsStorage
+from models.settings_data_model import SettingsDataModel
+from storage.settings_storage import SettingsStorage
 
 
 class SettingsController(BaseController):

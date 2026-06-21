@@ -5,9 +5,10 @@ import socket
 import webview
 
 from config import *
-from core.models.settings_data_model import SettingsDataModel
+from models.settings.window_settings import WindowSettings
+from models.settings_data_model import SettingsDataModel
 from core.service import Service
-from core.storage.settings_storage import SettingsStorage
+from storage.settings_storage import SettingsStorage
 from utils.webview_runtime import WebviewRuntime
 
 
@@ -44,10 +45,10 @@ class App:
         window = webview.create_window(
             title=APP_NAME,
             url=self._app_url,
-            width=settings.window_width,
-            height=settings.window_height,
-            x=settings.window_pos_x,
-            y=settings.window_pos_y
+            width=settings.window.width,
+            height=settings.window.height,
+            x=settings.window.x,
+            y=settings.window.y
         )
         window.events.closing += lambda: self._on_window_closing(window)
         window.events.closed += self._on_window_closed
@@ -57,10 +58,12 @@ class App:
     def _on_window_closing(self, window):
         try:
             settings = SettingsDataModel(
-                window_height=window.height,
-                window_pos_x=window.x,
-                window_pos_y=window.y,
-                window_width=window.width
+                window=WindowSettings(
+                    height=window.height,
+                    x=window.x,
+                    y=window.y,
+                    width=window.width
+                )
             )
         except Exception:
             return

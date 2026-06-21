@@ -2,8 +2,8 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from config import SETTINGS_DIR, SETTINGS_FILE_NAME
-from core.models.settings_data_model import SettingsDataModel
-from core.storage.base_json_storage import BaseJsonStorage
+from models.settings_data_model import SettingsDataModel
+from core.data.base_json_storage import BaseJsonStorage
 
 
 class SettingsStorage(BaseJsonStorage):
